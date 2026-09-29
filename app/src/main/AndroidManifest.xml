@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    This file tells Android about our app.
+    It lists the screens (Activities) in the app, and other basic info
+    like the app icon and name. Every Android app needs this file.
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--
+        The <application> tag holds settings for the whole app.
+    -->
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,13 +20,52 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
+        <!--
+            android:allowBackup="true" lets Android save a backup of the
+            app's data.
+
+            android:dataExtractionRules and android:fullBackupContent point
+            to files that say exactly what to back up.
+
+            android:icon and android:roundIcon are the app's icon pictures
+            (square and round versions), shown on the home screen.
+
+            android:label is the app's name. It comes from "app_name" in
+            strings.xml, not typed here directly, so it is easy to change.
+
+            android:supportsRtl="true" makes the app also work with
+            languages that read right-to-left, like Arabic.
+
+            android:theme sets the app's colors and styles.
+
+            tools:targetApi is only used by Android Studio's checks.
+            It is not used when the app runs.
+        -->
+
+        <!--
+            Every screen (Activity) must be listed here.
+            This app has one Activity: MainActivity.
+        -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.MyApplication">
+            <!--
+                android:name=".MainActivity" means the MainActivity class
+                in our app's package.
+
+                android:exported="true" is needed so the phone is allowed
+                to open this screen. It is required for the screen that
+                starts the app.
+            -->
             <intent-filter>
+                <!--
+                    This part says: "open this screen first when the user
+                    taps the app icon."
+                -->
                 <action android:name="android.intent.action.MAIN" />
 
+                <!-- This shows the app icon on the home screen. -->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

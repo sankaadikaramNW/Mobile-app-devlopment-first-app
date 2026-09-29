@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    This is the main layout for MainActivity.
+    It is shown first when the app opens.
+
+    CoordinatorLayout is a box that lets its children work together.
+    For example, it moves the round button out of the way when a message
+    (Snackbar) pops up.
+-->
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,12 +14,25 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
+    <!--
+        android:fitsSystemWindows="true" keeps our content away from the
+        phone's status bar and notch.
 
+        tools:context is only used by Android Studio's preview.
+        It is not used when the app runs.
+    -->
+
+    <!--
+        AppBarLayout is a box for the top bar of the app.
+    -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true">
 
+        <!-- This is the toolbar at the top of the screen.
+             Its id "toolbar" lets MainActivity.java find it
+             (binding.toolbar) and use it as the app bar. -->
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -19,8 +40,18 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <!--
+        This line adds another layout file (content_main.xml) here, like
+        copy-pasting it into this spot. content_main.xml holds the space
+        where FirstFragment and SecondFragment are shown.
+    -->
     <include layout="@layout/content_main" />
 
+    <!--
+        A round button (FAB = Floating Action Button).
+        Its id "fab" lets MainActivity.java find it and add a click action.
+        layout_gravity="bottom|end" puts it in the bottom-right corner.
+    -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"

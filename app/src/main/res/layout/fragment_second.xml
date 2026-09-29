@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    This is the layout for SecondFragment.java.
+    It looks almost the same as fragment_first.xml. Compare the two files
+    to see the pattern: one Button and one TextView, placed with rules.
+-->
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SecondFragment">
+    <!-- tools:context is only for Android Studio's preview.
+         It has no effect when the app runs. -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp">
 
+        <!--
+            The button the user taps to go back to FirstFragment.
+            Its id "button_second" lets SecondFragment.java find it
+            (binding.buttonSecond) and add a click action.
+            The text comes from the "previous" name in strings.xml.
+        -->
         <Button
             android:id="@+id/button_second"
             android:layout_width="wrap_content"
@@ -21,6 +34,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Simple text shown below the button. -->
         <TextView
             android:id="@+id/textview_second"
             android:layout_width="wrap_content"

@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    This layout is placed inside activity_main.xml using <include>.
+    It is the empty space below the toolbar, where the app's screens
+    (Fragments) are shown.
+
+    ConstraintLayout lets us place views using "constraints" — rules that
+    say how a view connects to other views or to the edges of the screen.
+-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <!--
+        This line tells the toolbar above how to move when this content
+        scrolls. It is a standard, built-in behavior.
+    -->
 
+    <!--
+        This <fragment> tag is a special container called a NavHostFragment.
+        It shows one screen at a time (FirstFragment, then SecondFragment,
+        and so on).
+
+        - android:name says which class to use (NavHostFragment).
+        - app:navGraph points to the file that lists all screens and how
+          they connect (res/navigation/nav_graph.xml).
+        - app:defaultNavHost="true" makes the phone's Back button move
+          between our screens correctly.
+        - The four "layout_constraint" lines make this box fill the
+          whole space (top, bottom, left, and right are all connected to
+          the parent).
+    -->
     <fragment
         android:id="@+id/nav_host_fragment_content_main"
         android:name="androidx.navigation.fragment.NavHostFragment"

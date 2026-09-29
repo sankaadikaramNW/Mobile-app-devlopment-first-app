@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    This is the layout for FirstFragment.java.
+    It is the first screen the user sees.
+
+    NestedScrollView lets the user scroll if the content is too tall for
+    the screen.
+-->
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
+    <!-- tools:context is only for Android Studio's preview.
+         It has no effect when the app runs. -->
 
+    <!-- ConstraintLayout places the button and text using constraints
+         (rules that connect a view to another view or to the screen edge). -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp">
 
+        <!--
+            The button the user taps to go to SecondFragment.
+            Its id "button_first" lets FirstFragment.java find it
+            (binding.buttonFirst) and add a click action.
+            The text comes from the "next" name in strings.xml.
+        -->
         <Button
             android:id="@+id/button_first"
             android:layout_width="wrap_content"
@@ -20,7 +37,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <!--
+            These 4 lines are the button's rules:
+            - top is stuck to the top of the screen
+            - left and right are stuck to the screen (this centers it)
+            - bottom is stuck to the top of the text below it
+        -->
 
+        <!-- Simple text shown below the button. -->
         <TextView
             android:id="@+id/textview_first"
             android:layout_width="wrap_content"
